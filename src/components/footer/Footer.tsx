@@ -21,8 +21,7 @@ const Footer = () => {
               </div>
               <div>
                 <p className="font-normal text-black mb-1 mt-3">Kontak</p>
-                <p>+62 812 3456 7890</p>
-                <p>hello@noonmoslemwear.id</p>
+                <p>+62 814-1227-6204</p>
               </div>
             </div>
           </div>
@@ -57,9 +56,9 @@ const Footer = () => {
             <div>
               <h4 className="text-sm font-normal mb-4">Ikuti Kami</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-sm font-light text-black/70 hover:text-black transition-colors">Instagram</a></li>
-                <li><a href="#" className="text-sm font-light text-black/70 hover:text-black transition-colors">TikTok</a></li>
-                <li><a href="#" className="text-sm font-light text-black/70 hover:text-black transition-colors">WhatsApp</a></li>
+                <li><a href="https://www.instagram.com/noonstudio.ac/" target="_blank" rel="noopener noreferrer" className="text-sm font-light text-black/70 hover:text-black transition-colors">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@noonstudio.ac" target="_blank" rel="noopener noreferrer" className="text-sm font-light text-black/70 hover:text-black transition-colors">TikTok</a></li>
+                <li><a href="https://wa.me/6281412276204" target="_blank" rel="noopener noreferrer" className="text-sm font-light text-black/70 hover:text-black transition-colors">WhatsApp</a></li>
               </ul>
             </div>
           </div>
