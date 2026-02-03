@@ -28,27 +28,27 @@ const Navigation = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([
     {
       id: 1,
-      name: "Pantheon",
-      price: "€2,850",
+      name: "Essential Tee",
+      price: "Rp249.000",
       image: pantheonImage,
       quantity: 1,
-      category: "Earrings"
+      category: "Kaos"
     },
     {
       id: 2,
-      name: "Eclipse",
-      price: "€3,200", 
+      name: "Daily Hoodie",
+      price: "Rp399.000", 
       image: eclipseImage,
       quantity: 1,
-      category: "Bracelets"
+      category: "Hoodie"
     },
     {
       id: 3,
-      name: "Halo",
-      price: "€1,950",
+      name: "Comfort Longsleeve",
+      price: "Rp299.000",
       image: haloImage, 
       quantity: 1,
-      category: "Earrings"
+      category: "Longsleeve"
     }
   ]);
 
@@ -83,12 +83,12 @@ const Navigation = () => {
   }, []);
 
   const popularSearches = [
-    "Gold Rings",
-    "Silver Necklaces", 
-    "Pearl Earrings",
-    "Designer Bracelets",
-    "Wedding Rings",
-    "Vintage Collection"
+    "Kaos Polos",
+    "Hoodie",
+    "Longsleeve",
+    "Kemeja",
+    "New Arrivals",
+    "Best Seller"
   ];
   
   const navItems = [
@@ -96,30 +96,30 @@ const Navigation = () => {
       name: "Shop", 
       href: "/category/shop",
       submenuItems: [
-        "Rings",
-        "Necklaces", 
-        "Earrings",
-        "Bracelets",
-        "Watches"
+        "Kaos",
+        "Longsleeve", 
+        "Hoodie",
+        "Kemeja",
+        "Celana"
       ],
       images: [
-        { src: "/rings-collection.png", alt: "Rings Collection", label: "Rings" },
-        { src: "/earrings-collection.png", alt: "Earrings Collection", label: "Earrings" }
+        { src: "/rings-collection.png", alt: "Kaos Collection", label: "Kaos" },
+        { src: "/earrings-collection.png", alt: "Hoodie Collection", label: "Hoodie" }
       ]
     },
     { 
       name: "New in", 
       href: "/category/new-in",
       submenuItems: [
-        "This Week's Arrivals",
-        "Spring Collection",
-        "Featured Designers",
+        "Koleksi Terbaru",
+        "Ramadan Collection",
+        "Best Seller",
         "Limited Edition",
-        "Pre-Orders"
+        "Pre-Order"
       ],
       images: [
-        { src: "/arcus-bracelet.png", alt: "Arcus Bracelet", label: "Arcus Bracelet" },
-        { src: "/span-bracelet.png", alt: "Span Bracelet", label: "Span Bracelet" }
+        { src: "/arcus-bracelet.png", alt: "New Arrival", label: "New Arrival" },
+        { src: "/span-bracelet.png", alt: "Best Seller", label: "Best Seller" }
       ]
     },
     { 
@@ -133,7 +133,7 @@ const Navigation = () => {
         "Store Locator"
       ],
       images: [
-        { src: "/founders.png", alt: "Company Founders", label: "Read our story" }
+        { src: "/founders.png", alt: "Noon Moslemwear", label: "Cerita Kami" }
       ]
     }
   ];
@@ -188,11 +188,7 @@ const Navigation = () => {
         {/* Center logo */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <Link to="/" className="block">
-            <img 
-              src="/LINEA-1.svg" 
-              alt="LINEA" 
-              className="h-6 w-auto"
-            />
+            <span className="text-xl font-normal tracking-wide text-foreground">NOON</span>
           </Link>
         </div>
 
@@ -268,11 +264,11 @@ const Navigation = () => {
                     // Determine the link destination based on dropdown and image
                     let linkTo = "/";
                     if (activeDropdown === "Shop") {
-                      if (image.label === "Rings") linkTo = "/category/rings";
-                      else if (image.label === "Earrings") linkTo = "/category/earrings";
+                      if (image.label === "Kaos") linkTo = "/category/kaos";
+                      else if (image.label === "Hoodie") linkTo = "/category/hoodie";
                     } else if (activeDropdown === "New in") {
-                      if (image.label === "Arcus Bracelet") linkTo = "/product/arcus-bracelet";
-                      else if (image.label === "Span Bracelet") linkTo = "/product/span-bracelet";
+                      if (image.label === "New Arrival") linkTo = "/category/new-in";
+                      else if (image.label === "Best Seller") linkTo = "/category/best-seller";
                     } else if (activeDropdown === "About") {
                       linkTo = "/about/our-story";
                     }
@@ -314,7 +310,7 @@ const Navigation = () => {
                   </svg>
                   <input
                     type="text"
-                    placeholder="Search for jewelry..."
+                    placeholder="Cari produk..."
                     className="flex-1 bg-transparent text-nav-foreground placeholder:text-nav-foreground/60 outline-none text-lg"
                     autoFocus
                   />
@@ -323,7 +319,7 @@ const Navigation = () => {
 
               {/* Popular searches */}
               <div>
-                <h3 className="text-nav-foreground text-sm font-light mb-4">Popular Searches</h3>
+                <h3 className="text-nav-foreground text-sm font-light mb-4">Pencarian Populer</h3>
                 <div className="flex flex-wrap gap-3">
                   {popularSearches.map((search, index) => (
                     <button
@@ -398,7 +394,7 @@ const Navigation = () => {
           <div className="absolute right-0 top-0 h-screen w-96 bg-background border-l border-border animate-slide-in-right flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-border">
-              <h2 className="text-lg font-light text-foreground">Your Favorites</h2>
+              <h2 className="text-lg font-light text-foreground">Wishlist</h2>
               <button
                 onClick={() => setOffCanvasType(null)}
                 className="p-2 text-foreground hover:text-muted-foreground transition-colors"
@@ -411,7 +407,7 @@ const Navigation = () => {
             {/* Content */}
             <div className="p-6">
               <p className="text-muted-foreground text-sm mb-6">
-                You haven't added any favorites yet. Browse our collection and click the heart icon to save items you love.
+                Kamu belum menambahkan produk favorit. Jelajahi koleksi kami dan klik ikon hati untuk menyimpan produk yang kamu suka.
               </p>
             </div>
           </div>

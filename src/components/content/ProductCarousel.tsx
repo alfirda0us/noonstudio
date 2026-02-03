@@ -25,44 +25,44 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: "Pantheon",
-    category: "Earrings",
-    price: "€2,850",
+    name: "Essential Tee",
+    category: "Kaos",
+    price: "Rp249.000",
     image: pantheonImage,
   },
   {
     id: 2,
-    name: "Eclipse",
-    category: "Bracelets",
-    price: "€3,200",
+    name: "Daily Hoodie",
+    category: "Hoodie",
+    price: "Rp399.000",
     image: eclipseImage,
   },
   {
     id: 3,
-    name: "Halo",
-    category: "Earrings",
-    price: "€1,950",
+    name: "Comfort Longsleeve",
+    category: "Longsleeve",
+    price: "Rp299.000",
     image: haloImage,
   },
   {
     id: 4,
-    name: "Oblique",
-    category: "Earrings",
-    price: "€1,650",
+    name: "Classic Polo",
+    category: "Kaos",
+    price: "Rp279.000",
     image: obliqueImage,
   },
   {
     id: 5,
-    name: "Lintel",
-    category: "Earrings",
-    price: "€2,250",
+    name: "Urban Jacket",
+    category: "Outerwear",
+    price: "Rp549.000",
     image: lintelImage,
   },
   {
     id: 6,
-    name: "Shadowline",
-    category: "Bracelets",
-    price: "€3,950",
+    name: "Modest Kemeja",
+    category: "Kemeja",
+    price: "Rp329.000",
     image: shadowlineImage,
   },
 ];
@@ -93,7 +93,7 @@ const ProductCarousel = () => {
                           className="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0"
                         />
                         <img
-                          src={product.category === "Earrings" ? organicEarring : linkBracelet}
+                          src={product.category === "Kaos" ? organicEarring : linkBracelet}
                           alt={`${product.name} lifestyle`}
                           className="absolute inset-0 w-full h-full object-cover transition-all duration-300 opacity-0 group-hover:opacity-100"
                         />
