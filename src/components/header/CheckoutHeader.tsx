@@ -12,21 +12,17 @@ const CheckoutHeader = () => {
             className="flex items-center gap-2 text-foreground hover:text-foreground/80 transition-colors"
           >
             <ChevronLeft className="h-4 w-4" />
-            <span className="text-sm font-light hidden sm:inline">Continue Shopping</span>
+            <span className="text-sm font-light hidden sm:inline">Lanjut Belanja</span>
           </Link>
 
           {/* Center - Logo - Absolutely positioned to ensure perfect centering */}
           <Link to="/" className="absolute left-1/2 transform -translate-x-1/2">
-            <img 
-              src="/LINEA-1.svg" 
-              alt="Linea Jewelry Inc" 
-              className="h-6 w-auto"
-            />
+            <span className="text-xl font-normal tracking-wide text-foreground">NOON</span>
           </Link>
 
           {/* Right side - Support */}
           <div className="text-sm font-light text-foreground">
-            Support
+            Bantuan
           </div>
         </div>
       </div>

@@ -7,41 +7,41 @@ const FiftyFiftySection = () => {
     <section className="w-full mb-16 px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <Link to="/category/earrings" className="block">
+          <Link to="/category/kaos" className="block">
             <div className="w-full aspect-square mb-3 overflow-hidden">
               <img 
                 src={earringsCollection} 
-                alt="Earrings collection" 
+                alt="Kaos collection" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           </Link>
           <div className="">
             <h3 className="text-sm font-normal text-foreground mb-1">
-              Organic Forms
+              Essential Tees
             </h3>
             <p className="text-sm font-light text-foreground">
-              Nature-inspired pieces with fluid, sculptural details
+              Kaos polos dengan bahan premium dan potongan yang nyaman
             </p>
           </div>
         </div>
 
         <div>
-          <Link to="/category/bracelets" className="block">
+          <Link to="/category/hoodie" className="block">
             <div className="w-full aspect-square mb-3 overflow-hidden">
               <img 
                 src={linkBracelet} 
-                alt="Chain link bracelet" 
+                alt="Hoodie collection" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           </Link>
           <div className="">
             <h3 className="text-sm font-normal text-foreground mb-1">
-              Chain Collection
+              Cozy Hoodies
             </h3>
             <p className="text-sm font-light text-foreground">
-              Refined links and connections in precious metals
+              Hoodie hangat untuk tampilan casual yang tetap sopan
             </p>
           </div>
         </div>

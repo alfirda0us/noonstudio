@@ -4,9 +4,9 @@ const StatusBar = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   
   const usps = [
-    "Free shipping over €50",
-    "365 days warranty",
-    "+100,000 happy customers"
+    "Gratis ongkir untuk pembelian di atas Rp300.000",
+    "Garansi kualitas 30 hari",
+    "Produk 100% original"
   ];
 
   useEffect(() => {
