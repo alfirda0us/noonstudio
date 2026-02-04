@@ -5,14 +5,10 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import pantheonImage from "@/assets/pantheon.jpg";
-import eclipseImage from "@/assets/eclipse.jpg";
-import haloImage from "@/assets/halo.jpg";
-import obliqueImage from "@/assets/oblique.jpg";
-import lintelImage from "@/assets/lintel.jpg";
-import shadowlineImage from "@/assets/shadowline.jpg";
-import organicEarring from "@/assets/organic-earring.png";
-import linkBracelet from "@/assets/link-bracelet.png";
+import smileTee from "@/assets/products/smile-tee.png";
+import tawakkalTee from "@/assets/products/tawakkal-tee.png";
+import ikhlasTee from "@/assets/products/ikhlas-tee.png";
+import tawakkalTeeAlt from "@/assets/products/tawakkal-tee-alt.png";
 
 interface Product {
   id: number;
@@ -20,50 +16,44 @@ interface Product {
   category: string;
   price: string;
   image: string;
+  hoverImage: string;
+  isNew?: boolean;
 }
 
 const products: Product[] = [
   {
     id: 1,
-    name: "Essential Tee",
+    name: "Smile Tee",
     category: "Kaos",
-    price: "Rp249.000",
-    image: pantheonImage,
+    price: "Rp189.000",
+    image: smileTee,
+    hoverImage: smileTee,
+    isNew: true,
   },
   {
     id: 2,
-    name: "Daily Hoodie",
-    category: "Hoodie",
-    price: "Rp399.000",
-    image: eclipseImage,
+    name: "Tawakkal Tee",
+    category: "Kaos",
+    price: "Rp189.000",
+    image: tawakkalTee,
+    hoverImage: tawakkalTeeAlt,
+    isNew: true,
   },
   {
     id: 3,
-    name: "Comfort Longsleeve",
-    category: "Longsleeve",
-    price: "Rp299.000",
-    image: haloImage,
+    name: "Ikhlas Tee",
+    category: "Kaos",
+    price: "Rp189.000",
+    image: ikhlasTee,
+    hoverImage: ikhlasTee,
   },
   {
     id: 4,
-    name: "Classic Polo",
+    name: "Tawakkal Tee",
     category: "Kaos",
-    price: "Rp279.000",
-    image: obliqueImage,
-  },
-  {
-    id: 5,
-    name: "Urban Jacket",
-    category: "Outerwear",
-    price: "Rp549.000",
-    image: lintelImage,
-  },
-  {
-    id: 6,
-    name: "Modest Kemeja",
-    category: "Kemeja",
-    price: "Rp329.000",
-    image: shadowlineImage,
+    price: "Rp189.000",
+    image: tawakkalTeeAlt,
+    hoverImage: tawakkalTee,
   },
 ];
 
@@ -93,12 +83,12 @@ const ProductCarousel = () => {
                           className="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0"
                         />
                         <img
-                          src={product.category === "Kaos" ? organicEarring : linkBracelet}
-                          alt={`${product.name} lifestyle`}
+                          src={product.hoverImage}
+                          alt={`${product.name} alt view`}
                           className="absolute inset-0 w-full h-full object-cover transition-all duration-300 opacity-0 group-hover:opacity-100"
                         />
                         <div className="absolute inset-0 bg-black/[0.03]"></div>
-                        {(product.id === 1 || product.id === 3) && (
+                        {product.isNew && (
                           <div className="absolute top-2 left-2 px-2 py-1 text-xs font-medium text-black">
                             NEW
                           </div>
