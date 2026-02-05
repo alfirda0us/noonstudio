@@ -1,47 +1,49 @@
-import earringsCollection from "@/assets/earrings-collection.png";
-import linkBracelet from "@/assets/link-bracelet.png";
 import { Link } from "react-router-dom";
+import { products } from "@/data/products";
 
 const FiftyFiftySection = () => {
+  const left = products[0];
+  const right = products[1];
+
   return (
     <section className="w-full mb-16 px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <Link to="/category/kaos" className="block">
+          <Link to={`/product/${left.id}`} className="block">
             <div className="w-full aspect-square mb-3 overflow-hidden">
               <img 
-                src={earringsCollection} 
-                alt="Kaos collection" 
+                src={left.images[0]} 
+                alt={left.name} 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           </Link>
           <div className="">
             <h3 className="text-sm font-normal text-foreground mb-1">
-              Essential Tees
+              {left.name}
             </h3>
             <p className="text-sm font-light text-foreground">
-              Kaos polos dengan bahan premium dan potongan yang nyaman
+              Kaos harian yang rapi, nyaman, dan mudah dipadukan
             </p>
           </div>
         </div>
 
         <div>
-          <Link to="/category/hoodie" className="block">
+          <Link to={`/product/${right.id}`} className="block">
             <div className="w-full aspect-square mb-3 overflow-hidden">
               <img 
-                src={linkBracelet} 
-                alt="Hoodie collection" 
+                src={right.images[0]} 
+                alt={right.name} 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           </Link>
           <div className="">
             <h3 className="text-sm font-normal text-foreground mb-1">
-              Cozy Hoodies
+              {right.name}
             </h3>
             <p className="text-sm font-light text-foreground">
-              Hoodie hangat untuk tampilan casual yang tetap sopan
+              Statement minimal yang tetap sopan dan clean
             </p>
           </div>
         </div>

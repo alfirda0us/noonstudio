@@ -23,9 +23,11 @@ const ShoppingBag = ({ isOpen, onClose, cartItems, updateQuantity, onViewFavorit
   if (!isOpen) return null;
 
   const subtotal = cartItems.reduce((sum, item) => {
-    const price = parseFloat(item.price.replace('€', '').replace(',', ''));
-    return sum + (price * item.quantity);
+    const price = Number(item.price.replace(/[^0-9]/g, "")) || 0;
+    return sum + price * item.quantity;
   }, 0);
+
+  const idr = new Intl.NumberFormat("id-ID");
 
   return (
     <div className="fixed inset-0 z-50 h-screen">
@@ -36,10 +38,10 @@ const ShoppingBag = ({ isOpen, onClose, cartItems, updateQuantity, onViewFavorit
       />
       
       {/* Off-canvas panel */}
-      <div className="absolute right-0 top-0 h-screen w-96 bg-background border-l border-border animate-slide-in-right flex flex-col">
+        <div className="absolute right-0 top-0 h-screen w-96 bg-background border-l border-border animate-slide-in-right flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border">
-          <h2 className="text-lg font-light text-foreground">Shopping Bag</h2>
+          <h2 className="text-lg font-light text-foreground">Keranjang</h2>
           <button
             onClick={onClose}
             className="p-2 text-foreground hover:text-muted-foreground transition-colors"
@@ -69,8 +71,8 @@ const ShoppingBag = ({ isOpen, onClose, cartItems, updateQuantity, onViewFavorit
           {cartItems.length === 0 ? (
             <div className="flex-1 flex items-center justify-center">
               <p className="text-muted-foreground text-sm text-center">
-                Your shopping bag is empty.<br />
-                Continue shopping to add items to your bag.
+                Keranjang kamu masih kosong.<br />
+                Yuk pilih produk dulu.
               </p>
             </div>
           ) : (
@@ -124,11 +126,11 @@ const ShoppingBag = ({ isOpen, onClose, cartItems, updateQuantity, onViewFavorit
               <div className="border-t border-border pt-6 space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-light text-foreground">Subtotal</span>
-                  <span className="text-sm font-medium text-foreground">€{subtotal.toLocaleString('en-EU', { minimumFractionDigits: 2 })}</span>
+                  <span className="text-sm font-medium text-foreground">Rp{idr.format(subtotal)}</span>
                 </div>
                 
                 <p className="text-xs text-muted-foreground">
-                  Shipping and taxes calculated at checkout
+                  Ongkir dan pajak dihitung saat checkout
                 </p>
                 
                 <Button 
@@ -138,7 +140,7 @@ const ShoppingBag = ({ isOpen, onClose, cartItems, updateQuantity, onViewFavorit
                   onClick={onClose}
                 >
                   <Link to="/checkout">
-                    Proceed to Checkout
+                    Lanjut ke Checkout
                   </Link>
                 </Button>
                 
@@ -150,7 +152,7 @@ const ShoppingBag = ({ isOpen, onClose, cartItems, updateQuantity, onViewFavorit
                   asChild
                 >
                   <Link to="/category/shop">
-                    Continue Shopping
+                    Lanjut Belanja
                   </Link>
                 </Button>
               </div>

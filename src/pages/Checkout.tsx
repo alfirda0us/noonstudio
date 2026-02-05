@@ -7,8 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
-import pantheonImage from "@/assets/pantheon.jpg";
-import eclipseImage from "@/assets/eclipse.jpg";
+import { products } from "@/data/products";
 
 const Checkout = () => {
   const [showDiscountInput, setShowDiscountInput] = useState(false);
@@ -45,23 +44,25 @@ const Checkout = () => {
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentComplete, setPaymentComplete] = useState(false);
+  const idr = new Intl.NumberFormat("id-ID");
   
   // Mock cart data - in a real app this would come from state management
   const [cartItems, setCartItems] = useState([
     {
-      id: 1,
-      name: "Pantheon Ring",
-      price: "€2,450",
+      id: products[0].id,
+      name: products[0].name,
+      price: products[0].price,
       quantity: 1,
-      image: pantheonImage,
-      size: "54 EU / 7 US"
+      image: products[0].images[0],
+      size: "M"
     },
     {
-      id: 2,
-      name: "Eclipse Earrings", 
-      price: "€1,850",
+      id: products[1].id,
+      name: products[1].name,
+      price: products[1].price,
       quantity: 1,
-      image: eclipseImage
+      image: products[1].images[0],
+      size: "M"
     }
   ]);
 
@@ -78,16 +79,16 @@ const Checkout = () => {
   };
 
   const subtotal = cartItems.reduce((sum, item) => {
-    const price = parseFloat(item.price.replace('€', '').replace(',', ''));
-    return sum + (price * item.quantity);
+    const price = Number(item.price.replace(/[^0-9]/g, "")) || 0;
+    return sum + price * item.quantity;
   }, 0);
 
   const getShippingCost = () => {
     switch (shippingOption) {
       case "express":
-        return 15;
+        return 15000;
       case "overnight":
-        return 35;
+        return 35000;
       default:
         return 0; // Standard shipping is free
     }
@@ -220,7 +221,7 @@ const Checkout = () => {
                 <div className="border-t border-muted-foreground/20 mt-4 pt-6">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span className="text-foreground">€{subtotal.toLocaleString()}</span>
+                    <span className="text-foreground">Rp{idr.format(subtotal)}</span>
                   </div>
                 </div>
               </div>
@@ -524,7 +525,7 @@ const Checkout = () => {
                     </Label>
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    €15 • 1-2 business days
+                    Rp{idr.format(15000)} • 1-2 business days
                   </div>
                 </div>
 
@@ -536,7 +537,7 @@ const Checkout = () => {
                     </Label>
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    €35 • Next business day
+                    Rp{idr.format(35000)} • Next business day
                   </div>
                 </div>
               </RadioGroup>
@@ -630,17 +631,17 @@ const Checkout = () => {
                   <div className="bg-muted/10 p-6 rounded-none border border-muted-foreground/20 space-y-3">
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Subtotal</span>
-                      <span className="text-foreground">€{subtotal.toLocaleString()}</span>
+                      <span className="text-foreground">Rp{idr.format(subtotal)}</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Shipping</span>
                       <span className="text-foreground">
-                        {shipping === 0 ? "Free" : `€${shipping}`}
+                        {shipping === 0 ? "Free" : `Rp${idr.format(shipping)}`}
                       </span>
                     </div>
                     <div className="flex justify-between text-lg font-medium border-t border-muted-foreground/20 pt-3">
                       <span className="text-foreground">Total</span>
-                      <span className="text-foreground">€{total.toLocaleString()}</span>
+                      <span className="text-foreground">Rp{idr.format(total)}</span>
                     </div>
                   </div>
 
@@ -649,13 +650,13 @@ const Checkout = () => {
                     disabled={isProcessing || !paymentDetails.cardNumber || !paymentDetails.expiryDate || !paymentDetails.cvv || !paymentDetails.cardholderName}
                     className="w-full rounded-none h-12 text-base"
                   >
-                    {isProcessing ? "Processing..." : `Complete Order • €${total.toLocaleString()}`}
+                    {isProcessing ? "Processing..." : `Complete Order • Rp${idr.format(total)}`}
                   </Button>
                 </div>
               ) : (
                 <div className="text-center py-12">
-                  <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                    <Check className="h-8 w-8 text-green-600" />
+                  <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                    <Check className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-light text-foreground mb-2">Order Complete!</h3>
                   <p className="text-muted-foreground">Thank you for your purchase. Your order confirmation has been sent to your email.</p>
