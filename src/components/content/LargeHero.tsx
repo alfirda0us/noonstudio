@@ -6,7 +6,7 @@ const LargeHero = () => {
       <div className="w-full aspect-[16/9] mb-3 overflow-hidden">
         <img 
           src={heroImage} 
-          alt="Noon Moslemwear collection" 
+          alt="Noon Studio collection" 
           className="w-full h-full object-cover"
         />
       </div>

@@ -11,7 +11,7 @@ const EditorialSection = () => {
             Berpakaian Sopan, Tetap Bergaya
           </h2>
           <p className="text-sm font-light text-foreground leading-relaxed">
-            Noon Moslemwear hadir sebagai pilihan bagi generasi muda yang ingin berpakaian sopan tanpa meninggalkan gaya. Setiap produk dirancang dengan potongan yang nyaman, warna yang tenang, dan detail yang tidak berlebihan untuk menemani aktivitas harian—sekolah, ibadah, hingga kegiatan santai.
+            Noon Studio hadir sebagai pilihan bagi generasi muda yang ingin berpakaian sopan tanpa meninggalkan gaya. Setiap produk dirancang dengan potongan yang nyaman, warna yang tenang, dan detail yang tidak berlebihan untuk menemani aktivitas harian—sekolah, ibadah, hingga kegiatan santai.
           </p>
           <Link to="/about/our-story" className="inline-flex items-center gap-1 text-sm font-light text-foreground hover:text-foreground/80 transition-colors duration-200">
             <span>Baca cerita kami</span>
@@ -21,7 +21,7 @@ const EditorialSection = () => {
         
         <div className="order-first md:order-last">
           <div className="w-full aspect-square overflow-hidden">
-            <img src={founders} alt="Noon Moslemwear team" className="w-full h-full object-cover" />
+            <img src={founders} alt="Noon Studio team" className="w-full h-full object-cover" />
           </div>
         </div>
       </div>

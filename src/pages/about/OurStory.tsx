@@ -24,9 +24,9 @@ const OurStory = () => {
           <ContentSection>
             <ImageTextBlock
               image="/founders.png"
-              imageAlt="Noon Moslemwear team"
+              imageAlt="Noon Studio team"
               title="Didirikan dengan Tujuan"
-              content="Noon Moslemwear lahir dari keinginan untuk menghadirkan pakaian muslim yang nyaman, modern, dan relevan bagi anak muda. Kami percaya bahwa berpakaian sopan tidak harus mengorbankan gaya. Nama 'Noon' terinspirasi dari huruf Arab ن (Nun) yang melambangkan awal, identitas, dan makna."
+              content="Noon Studio lahir dari keinginan untuk menghadirkan pakaian muslim yang nyaman, modern, dan relevan bagi anak muda. Kami percaya bahwa berpakaian sopan tidak harus mengorbankan gaya. Nama 'Noon' terinspirasi dari huruf Arab ن (Nun) yang melambangkan awal, identitas, dan makna."
               imagePosition="left"
             />
           </ContentSection>

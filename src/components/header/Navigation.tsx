@@ -133,7 +133,7 @@ const Navigation = () => {
         "Store Locator"
       ],
       images: [
-        { src: "/founders.png", alt: "Noon Moslemwear", label: "Cerita Kami" }
+        { src: "/founders.png", alt: "Noon Studio", label: "Cerita Kami" }
       ]
     }
   ];
@@ -188,7 +188,7 @@ const Navigation = () => {
         {/* Center logo */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <Link to="/" className="block">
-            <span className="text-xl font-normal tracking-wide text-foreground">NOON</span>
+            <span className="text-xl font-normal tracking-wide text-foreground">NOON STUDIO</span>
           </Link>
         </div>
 

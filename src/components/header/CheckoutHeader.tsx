@@ -17,7 +17,7 @@ const CheckoutHeader = () => {
 
           {/* Center - Logo - Absolutely positioned to ensure perfect centering */}
           <Link to="/" className="absolute left-1/2 transform -translate-x-1/2">
-            <span className="text-xl font-normal tracking-wide text-foreground">NOON</span>
+            <span className="text-xl font-normal tracking-wide text-foreground">NOON STUDIO</span>
           </Link>
 
           {/* Right side - Support */}
