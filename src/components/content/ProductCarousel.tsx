@@ -5,10 +5,10 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import smileTee from "@/assets/products/smile-tee.png";
-import tawakkalTee from "@/assets/products/tawakkal-tee.png";
-import ikhlasTee from "@/assets/products/ikhlas-tee.png";
-import tawakkalTeeAlt from "@/assets/products/tawakkal-tee-alt.png";
+import smileTee from "@/assets/products/smile-tee.jpg";
+import beautifulTee from "@/assets/products/beautiful-tee.jpg";
+import basicTee from "@/assets/products/basic-tee.jpg";
+import tawakkalTee from "@/assets/products/tawakkal-tee.jpg";
 
 interface Product {
   id: number;
@@ -32,27 +32,27 @@ const products: Product[] = [
   },
   {
     id: 2,
-    name: "Tawakkal Tee",
+    name: "Beautiful Tee",
     category: "Kaos",
     price: "Rp189.000",
-    image: tawakkalTee,
-    hoverImage: tawakkalTeeAlt,
+    image: beautifulTee,
+    hoverImage: beautifulTee,
     isNew: true,
   },
   {
     id: 3,
-    name: "Ikhlas Tee",
+    name: "Basic Tee",
     category: "Kaos",
     price: "Rp189.000",
-    image: ikhlasTee,
-    hoverImage: ikhlasTee,
+    image: basicTee,
+    hoverImage: basicTee,
   },
   {
     id: 4,
     name: "Tawakkal Tee",
     category: "Kaos",
     price: "Rp189.000",
-    image: tawakkalTeeAlt,
+    image: tawakkalTee,
     hoverImage: tawakkalTee,
   },
 ];
