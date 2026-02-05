@@ -1,73 +1,110 @@
-# Welcome to your Lovable project
+# NOON STUDIO™ - Modest Wear E-commerce Website
 
-## Project info
+A modern e-commerce website for NOON STUDIO™, providing modest wear apparel including t-shirts, longsleeves, hoodies, and daily apparel with simple, modern, and Islamic-inspired designs for young Muslim generations.
 
-**URL**: https://lovable.dev/projects/a8e59680-e4fc-4735-a797-36af2f7e2875
+## 🚀 Features
 
-## How can I edit this code?
+- **Product Catalog**: Browse categories and individual product details
+- **Shopping Cart & Checkout**: Complete e-commerce functionality
+- **Responsive Design**: Optimized for all devices
+- **Modern UI**: Built with ShadCN UI components and Tailwind CSS
+- **Fast Performance**: Powered by Vite for rapid development and building
+- **TypeScript**: Full type safety throughout the application
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with custom animations
+- **UI Components**: ShadCN UI (Radix UI primitives)
+- **Routing**: React Router DOM
+- **State Management**: TanStack Query for server state
+- **Form Handling**: React Hook Form with Zod validation
+- **Icons**: Lucide React
+- **Package Manager**: npm/bun
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a8e59680-e4fc-4735-a797-36af2f7e2875) and start prompting.
+## 📦 Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd noonstudio
+   ```
 
-**Use your preferred IDE**
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   bun install
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   bun run dev
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+4. **Open your browser**
+   Navigate to `http://localhost:5173` (or the port shown in your terminal)
 
-Follow these steps:
+## 📜 Available Scripts
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build locally
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🏗️ Project Structure
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # ShadCN UI components
+│   ├── header/         # Header components
+│   ├── footer/         # Footer components
+│   ├── content/        # Content sections
+│   └── ...
+├── pages/              # Page components
+│   ├── about/          # About pages
+│   └── ...
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+├── data/               # Static data
+└── assets/             # Images and media
 ```
 
-**Edit a file directly in GitHub**
+## 🌐 Pages
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Home** (`/`) - Landing page with hero section and featured products
+- **Category** (`/category/:category`) - Product category listings
+- **Product Detail** (`/product/:productId`) - Individual product pages
+- **Checkout** (`/checkout`) - Shopping cart and checkout process
+- **About Pages**:
+  - Our Story (`/about/our-story`)
+  - Sustainability (`/about/sustainability`)
+  - Size Guide (`/about/size-guide`)
+  - Customer Care (`/about/customer-care`)
+  - Store Locator (`/about/store-locator`)
+- **Legal Pages**:
+  - Privacy Policy (`/privacy-policy`)
+  - Terms of Service (`/terms-of-service`)
 
-**Use GitHub Codespaces**
+## 🤝 Contributing
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## What technologies are used for this project?
+## 📄 License
 
-This project is built with:
+This project is private and proprietary to NOON STUDIO™.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📞 Contact
 
-## How can I deploy this project?
+NOON STUDIO™ - Modest Wear untuk Generasi Muda Muslim
 
-Simply open [Lovable](https://lovable.dev/projects/a8e59680-e4fc-4735-a797-36af2f7e2875) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+For inquiries, please visit our website or contact us through the customer care page.
