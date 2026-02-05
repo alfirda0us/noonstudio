@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-8">
           {/* Brand - Left side */}
           <div>
-            <h2 className="text-xl font-normal tracking-wide mb-4">NOON STUDIO</h2>
+            <h2 className="text-xl font-normal tracking-wide mb-4">NOON STUDIO™</h2>
             <p className="text-sm font-light text-black/70 leading-relaxed max-w-md mb-6">
               Modest wear untuk generasi muda muslim. Nyaman, modern, dan bernuansa Islami.
             </p>
@@ -69,7 +69,7 @@ const Footer = () => {
       <div className="border-t border-[#e5e5e5] -mx-6 px-6 pt-2">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm font-light text-black mb-1 md:mb-0">
-            © 2024 NOON STUDIO. All rights reserved.
+            © 2024 NOON STUDIO™. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link to="/privacy-policy" className="text-sm font-light text-black hover:text-black/70 transition-colors">

@@ -188,7 +188,7 @@ const Navigation = () => {
         {/* Center logo */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <Link to="/" className="block">
-            <span className="text-xl font-normal tracking-wide text-foreground">NOON STUDIO</span>
+            <span className="text-xl font-normal tracking-wide text-foreground">NOON STUDIO™</span>
           </Link>
         </div>
 
