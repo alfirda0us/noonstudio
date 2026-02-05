@@ -1,12 +1,8 @@
-import { ArrowRight, X, Minus, Plus } from "lucide-react";
-import { useState, useEffect } from "react";
+import { ArrowRight, X } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import ShoppingBag from "./ShoppingBag";
-import pantheonImage from "@/assets/pantheon.jpg";
-import eclipseImage from "@/assets/eclipse.jpg";
-import haloImage from "@/assets/halo.jpg";
+import { products } from "@/data/products";
 
 interface CartItem {
   id: number;
@@ -24,33 +20,8 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isShoppingBagOpen, setIsShoppingBagOpen] = useState(false);
   
-  // Shopping bag state with 3 mock items
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: 1,
-      name: "Essential Tee",
-      price: "Rp249.000",
-      image: pantheonImage,
-      quantity: 1,
-      category: "Kaos"
-    },
-    {
-      id: 2,
-      name: "Daily Hoodie",
-      price: "Rp399.000", 
-      image: eclipseImage,
-      quantity: 1,
-      category: "Hoodie"
-    },
-    {
-      id: 3,
-      name: "Comfort Longsleeve",
-      price: "Rp299.000",
-      image: haloImage, 
-      quantity: 1,
-      category: "Longsleeve"
-    }
-  ]);
+  // Shopping bag state (mock)
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   
@@ -66,86 +37,51 @@ const Navigation = () => {
     }
   };
   
-  // Preload dropdown images for faster display
-  useEffect(() => {
-    const imagesToPreload = [
-      "/rings-collection.png",
-      "/earrings-collection.png", 
-      "/arcus-bracelet.png",
-      "/span-bracelet.png",
-      "/founders.png"
-    ];
-    
-    imagesToPreload.forEach(src => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
-
   const popularSearches = [
-    "Kaos Polos",
-    "Hoodie",
-    "Longsleeve",
-    "Kemeja",
-    "New Arrivals",
-    "Best Seller"
+    "Kaos",
+    "Smile Tee",
+    "Beautiful Tee",
+    "Basic Tee",
+    "Tawakkal Tee"
   ];
   
   const navItems = [
     { 
       name: "Shop", 
-      href: "/category/shop",
-      submenuItems: [
-        "Kaos",
-        "Longsleeve", 
-        "Hoodie",
-        "Kemeja",
-        "Celana"
-      ],
+      href: "/category/kaos",
+      submenuItems: [{ label: "Kaos", to: "/category/kaos" }],
       images: [
-        { src: "/rings-collection.png", alt: "Kaos Collection", label: "Kaos" },
-        { src: "/earrings-collection.png", alt: "Hoodie Collection", label: "Hoodie" }
+        { src: products[0]?.images[0], alt: products[0]?.name ?? "Produk", label: products[0]?.name ?? "Produk", to: `/product/${products[0]?.id ?? 1}` },
+        { src: products[1]?.images[0], alt: products[1]?.name ?? "Produk", label: products[1]?.name ?? "Produk", to: `/product/${products[1]?.id ?? 2}` },
       ]
     },
     { 
       name: "New in", 
       href: "/category/new-in",
-      submenuItems: [
-        "Koleksi Terbaru",
-        "Ramadan Collection",
-        "Best Seller",
-        "Limited Edition",
-        "Pre-Order"
-      ],
+      submenuItems: [{ label: "Koleksi Terbaru", to: "/category/new-in" }],
       images: [
-        { src: "/arcus-bracelet.png", alt: "New Arrival", label: "New Arrival" },
-        { src: "/span-bracelet.png", alt: "Best Seller", label: "Best Seller" }
+        { src: products[2]?.images[0], alt: products[2]?.name ?? "Produk", label: products[2]?.name ?? "Produk", to: `/product/${products[2]?.id ?? 3}` },
+        { src: products[3]?.images[0], alt: products[3]?.name ?? "Produk", label: products[3]?.name ?? "Produk", to: `/product/${products[3]?.id ?? 4}` },
       ]
     },
     { 
       name: "About", 
       href: "/about/our-story",
       submenuItems: [
-        "Our Story",
-        "Sustainability",
-        "Size Guide",
-        "Customer Care",
-        "Store Locator"
+        { label: "Cerita Kami", to: "/about/our-story" },
+        { label: "Sustainability", to: "/about/sustainability" },
+        { label: "Size Guide", to: "/about/size-guide" },
+        { label: "Customer Care", to: "/about/customer-care" },
+        { label: "Store Locator", to: "/about/store-locator" },
       ],
       images: [
-        { src: "/founders.png", alt: "Noon Moslemwear", label: "Cerita Kami" }
+        { src: "/founders.png", alt: "Noon Moslemwear", label: "Cerita Kami", to: "/about/our-story" }
       ]
     }
   ];
 
   return (
-    <nav 
-      className="relative" 
-      style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        backdropFilter: 'blur(10px)'
-      }}
-    >
+    <nav className="relative bg-background/90 backdrop-blur-md border-b border-border">
       <div className="flex items-center justify-between h-16 px-6">
         {/* Mobile hamburger button */}
         <button
@@ -221,7 +157,7 @@ const Navigation = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
             </svg>
             {totalItems > 0 && (
-              <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[30%] text-[0.5rem] font-semibold text-black pointer-events-none">
+              <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[30%] text-[0.5rem] font-semibold text-foreground pointer-events-none">
                 {totalItems}
               </span>
             )}
@@ -243,13 +179,13 @@ const Navigation = () => {
                 <ul className="space-y-2">
                    {navItems
                      .find(item => item.name === activeDropdown)
-                     ?.submenuItems.map((subItem, index) => (
+                      ?.submenuItems.map((subItem, index) => (
                       <li key={index}>
                         <Link 
-                          to={activeDropdown === "About" ? `/about/${subItem.toLowerCase().replace(/\s+/g, '-')}` : `/category/${subItem.toLowerCase()}`}
+                          to={subItem.to}
                           className="text-nav-foreground hover:text-nav-hover transition-colors duration-200 text-sm font-light block py-2"
                         >
-                          {subItem}
+                          {subItem.label}
                         </Link>
                       </li>
                    ))}
@@ -261,27 +197,15 @@ const Navigation = () => {
                 {navItems
                   .find(item => item.name === activeDropdown)
                   ?.images.map((image, index) => {
-                    // Determine the link destination based on dropdown and image
-                    let linkTo = "/";
-                    if (activeDropdown === "Shop") {
-                      if (image.label === "Kaos") linkTo = "/category/kaos";
-                      else if (image.label === "Hoodie") linkTo = "/category/hoodie";
-                    } else if (activeDropdown === "New in") {
-                      if (image.label === "New Arrival") linkTo = "/category/new-in";
-                      else if (image.label === "Best Seller") linkTo = "/category/best-seller";
-                    } else if (activeDropdown === "About") {
-                      linkTo = "/about/our-story";
-                    }
-                    
                     return (
-                      <Link key={index} to={linkTo} className="w-[400px] h-[280px] cursor-pointer group relative overflow-hidden block">
+                      <Link key={index} to={image.to ?? "/"} className="w-[400px] h-[280px] cursor-pointer group relative overflow-hidden block">
                         <img 
                           src={image.src}
                           alt={image.alt}
                           className="w-full h-full object-cover transition-opacity duration-200 group-hover:opacity-90"
                         />
                         {(activeDropdown === "Shop" || activeDropdown === "New in" || activeDropdown === "About") && (
-                          <div className="absolute bottom-2 left-2 text-white text-xs font-light flex items-center gap-1">
+                          <div className="absolute bottom-2 left-2 text-background text-xs font-light flex items-center gap-1">
                             <span>{image.label}</span>
                             <ArrowRight size={12} />
                           </div>
@@ -354,11 +278,11 @@ const Navigation = () => {
                      {item.submenuItems.map((subItem, subIndex) => (
                        <Link
                          key={subIndex}
-                         to={item.name === "About" ? `/about/${subItem.toLowerCase().replace(/\s+/g, '-')}` : `/category/${subItem.toLowerCase()}`}
+                          to={subItem.to}
                          className="text-nav-foreground/70 hover:text-nav-hover text-sm font-light block py-1"
                          onClick={() => setIsMobileMenuOpen(false)}
                        >
-                         {subItem}
+                          {subItem.label}
                        </Link>
                      ))}
                    </div>
