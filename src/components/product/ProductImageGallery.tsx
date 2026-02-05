@@ -1,32 +1,26 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import ImageZoom from "./ImageZoom";
-import pantheonImage from "@/assets/pantheon.jpg";
-import eclipseImage from "@/assets/eclipse.jpg";
-import haloImage from "@/assets/halo.jpg";
-import organicEarring from "@/assets/organic-earring.png";
-import linkBracelet from "@/assets/link-bracelet.png";
 
-const productImages = [
-  pantheonImage,
-  organicEarring,
-  eclipseImage,
-  linkBracelet,
-  haloImage,
-];
+interface ProductImageGalleryProps {
+  images: string[];
+  productName: string;
+}
 
-const ProductImageGallery = () => {
+const ProductImageGallery = ({ images, productName }: ProductImageGalleryProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isZoomOpen, setIsZoomOpen] = useState(false);
   const [zoomInitialIndex, setZoomInitialIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
+  const safeImages = images?.length ? images : [];
+
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
+    setCurrentImageIndex((prev) => (prev + 1) % safeImages.length);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
+    setCurrentImageIndex((prev) => (prev - 1 + safeImages.length) % safeImages.length);
   };
 
   const handleImageClick = (index: number) => {
@@ -44,6 +38,7 @@ const ProductImageGallery = () => {
 
   const handleTouchEnd = () => {
     if (!touchStartX.current || !touchEndX.current) return;
+    if (safeImages.length <= 1) return;
     
     const difference = touchStartX.current - touchEndX.current;
     const minSwipeDistance = 50;
@@ -67,7 +62,7 @@ const ProductImageGallery = () => {
       {/* Desktop: Vertical scrolling gallery (1024px and above) */}
       <div className="hidden lg:block">
         <div className="space-y-4">
-          {productImages.map((image, index) => (
+          {safeImages.map((image, index) => (
             <div 
               key={index} 
               className="w-full aspect-square overflow-hidden cursor-pointer group"
@@ -75,7 +70,7 @@ const ProductImageGallery = () => {
             >
               <img
                 src={image}
-                alt={`Product view ${index + 1}`}
+                alt={`${productName} - foto ${index + 1}`}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -88,21 +83,22 @@ const ProductImageGallery = () => {
         <div className="relative">
           <div 
             className="w-full aspect-square overflow-hidden cursor-pointer group touch-pan-y"
-            onClick={() => handleImageClick(currentImageIndex)}
+            onClick={() => safeImages.length && handleImageClick(currentImageIndex)}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
             <img
-              src={productImages[currentImageIndex]}
-              alt={`Product view ${currentImageIndex + 1}`}
+              src={safeImages[currentImageIndex]}
+              alt={`${productName} - foto ${currentImageIndex + 1}`}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 select-none"
             />
           </div>
           
           {/* Dots indicator */}
-          <div className="flex justify-center mt-4 gap-2">
-            {productImages.map((_, index) => (
+          {safeImages.length > 1 && (
+            <div className="flex justify-center mt-4 gap-2">
+              {safeImages.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
@@ -110,14 +106,15 @@ const ProductImageGallery = () => {
                   index === currentImageIndex ? 'bg-foreground' : 'bg-muted'
                 }`}
               />
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
       {/* Image Zoom Modal */}
       <ImageZoom
-        images={productImages}
+        images={safeImages}
         initialIndex={zoomInitialIndex}
         isOpen={isZoomOpen}
         onClose={() => setIsZoomOpen(false)}

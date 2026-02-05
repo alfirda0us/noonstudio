@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ReviewProduct from "./ReviewProduct";
+import type { ProductDetailData } from "@/data/products";
 
 const CustomStar = ({ filled, className }: { filled: boolean; className?: string }) => (
   <svg 
@@ -18,7 +19,11 @@ const CustomStar = ({ filled, className }: { filled: boolean; className?: string
   </svg>
 );
 
-const ProductDescription = () => {
+interface ProductDescriptionProps {
+  product: ProductDetailData;
+}
+
+const ProductDescription = ({ product }: ProductDescriptionProps) => {
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isCareOpen, setIsCareOpen] = useState(false);
@@ -33,7 +38,7 @@ const ProductDescription = () => {
           onClick={() => setIsDescriptionOpen(!isDescriptionOpen)}
           className="w-full h-14 px-0 justify-between hover:bg-transparent font-light rounded-none"
         >
-          <span>Description</span>
+          <span>Deskripsi</span>
           {isDescriptionOpen ? (
             <ChevronUp className="h-4 w-4" />
           ) : (
@@ -42,16 +47,11 @@ const ProductDescription = () => {
         </Button>
         {isDescriptionOpen && (
           <div className="pb-6 space-y-4">
-            <p className="text-sm font-light text-muted-foreground leading-relaxed">
-              The Pantheon earrings embody architectural elegance with their clean, geometric design. 
-              Inspired by classical Roman architecture, these statement pieces feature a sophisticated 
-              interplay of curves and angles that catch and reflect light beautifully.
-            </p>
-            <p className="text-sm font-light text-muted-foreground leading-relaxed">
-              Each earring is meticulously crafted from premium sterling silver with an 18k gold 
-              plating, ensuring both durability and luxury. The minimalist aesthetic makes them 
-              perfect for both everyday wear and special occasions.
-            </p>
+            {product.description.map((p, idx) => (
+              <p key={idx} className="text-sm font-light text-muted-foreground leading-relaxed">
+                {p}
+              </p>
+            ))}
           </div>
         )}
       </div>
@@ -63,7 +63,7 @@ const ProductDescription = () => {
           onClick={() => setIsDetailsOpen(!isDetailsOpen)}
           className="w-full h-14 px-0 justify-between hover:bg-transparent font-light rounded-none"
         >
-          <span>Product Details</span>
+          <span>Detail Produk</span>
           {isDetailsOpen ? (
             <ChevronUp className="h-4 w-4" />
           ) : (
@@ -72,22 +72,12 @@ const ProductDescription = () => {
         </Button>
         {isDetailsOpen && (
           <div className="pb-6 space-y-3">
-            <div className="flex justify-between">
-              <span className="text-sm font-light text-muted-foreground">SKU</span>
-              <span className="text-sm font-light text-foreground">LE-PTH-001</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-sm font-light text-muted-foreground">Collection</span>
-              <span className="text-sm font-light text-foreground">Architectural Series</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-sm font-light text-muted-foreground">Closure</span>
-              <span className="text-sm font-light text-foreground">Post and butterfly back</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-sm font-light text-muted-foreground">Hypoallergenic</span>
-              <span className="text-sm font-light text-foreground">Yes</span>
-            </div>
+            {product.details.map((row) => (
+              <div key={row.label} className="flex justify-between gap-6">
+                <span className="text-sm font-light text-muted-foreground">{row.label}</span>
+                <span className="text-sm font-light text-foreground text-right">{row.value}</span>
+              </div>
+            ))}
           </div>
         )}
       </div>
@@ -99,7 +89,7 @@ const ProductDescription = () => {
           onClick={() => setIsCareOpen(!isCareOpen)}
           className="w-full h-14 px-0 justify-between hover:bg-transparent font-light rounded-none"
         >
-          <span>Care & Cleaning</span>
+          <span>Perawatan</span>
           {isCareOpen ? (
             <ChevronUp className="h-4 w-4" />
           ) : (
@@ -109,13 +99,12 @@ const ProductDescription = () => {
         {isCareOpen && (
           <div className="pb-6 space-y-4">
             <ul className="space-y-2">
-              <li className="text-sm font-light text-muted-foreground">• Clean with a soft, dry cloth after each wear</li>
-              <li className="text-sm font-light text-muted-foreground">• Avoid contact with perfumes, lotions, and cleaning products</li>
-              <li className="text-sm font-light text-muted-foreground">• Store in the provided jewelry pouch when not wearing</li>
-              <li className="text-sm font-light text-muted-foreground">• Remove before swimming, exercising, or showering</li>
+              {product.care.map((tip, idx) => (
+                <li key={idx} className="text-sm font-light text-muted-foreground">• {tip}</li>
+              ))}
             </ul>
             <p className="text-sm font-light text-muted-foreground">
-              For professional cleaning, visit your local jeweler or contact our customer service team.
+              Jika kamu butuh bantuan, hubungi tim Customer Care kami.
             </p>
           </div>
         )}
@@ -129,7 +118,7 @@ const ProductDescription = () => {
           className="w-full h-14 px-0 justify-between hover:bg-transparent font-light rounded-none"
         >
           <div className="flex items-center gap-3">
-            <span>Customer Reviews</span>
+            <span>Ulasan</span>
             <div className="flex items-center">
               {[1, 2, 3, 4, 5].map((star) => (
                 <CustomStar
@@ -166,8 +155,7 @@ const ProductDescription = () => {
                   <span className="text-sm font-light text-muted-foreground">Sarah M.</span>
                 </div>
                 <p className="text-sm font-light text-muted-foreground leading-relaxed">
-                  "Absolutely stunning earrings! The quality is exceptional and they go with everything. 
-                  The architectural design is so unique and I get compliments every time I wear them."
+                  "Bahannya nyaman banget dipakai seharian, potongannya rapi. Jadi favorit!"
                 </p>
               </div>
 
@@ -184,8 +172,7 @@ const ProductDescription = () => {
                   <span className="text-sm font-light text-muted-foreground">Emma T.</span>
                 </div>
                 <p className="text-sm font-light text-muted-foreground leading-relaxed">
-                  "Beautiful craftsmanship and comfortable to wear all day. The gold plating has held up 
-                  perfectly after months of regular wear. Highly recommend!"
+                  "Warnanya cakep dan gampang dipaduin. Packing juga rapi."
                 </p>
               </div>
 
@@ -202,8 +189,7 @@ const ProductDescription = () => {
                   <span className="text-sm font-light text-muted-foreground">Jessica R.</span>
                 </div>
                 <p className="text-sm font-light text-muted-foreground leading-relaxed">
-                  "These earrings are a work of art. The minimalist design is elegant and sophisticated. 
-                  Perfect weight and the packaging was beautiful too."
+                  "Simple tapi berkarakter. Enak buat daily dan tetap sopan."
                 </p>
               </div>
             </div>

@@ -5,57 +5,7 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import smileTee from "@/assets/products/smile-tee.png";
-import tawakkalTee from "@/assets/products/tawakkal-tee.png";
-import ikhlasTee from "@/assets/products/ikhlas-tee.png";
-import tawakkalTeeAlt from "@/assets/products/tawakkal-tee-alt.png";
-
-interface Product {
-  id: number;
-  name: string;
-  category: string;
-  price: string;
-  image: string;
-  hoverImage: string;
-  isNew?: boolean;
-}
-
-const products: Product[] = [
-  {
-    id: 1,
-    name: "Smile Tee",
-    category: "Kaos",
-    price: "Rp189.000",
-    image: smileTee,
-    hoverImage: smileTee,
-    isNew: true,
-  },
-  {
-    id: 2,
-    name: "Tawakkal Tee",
-    category: "Kaos",
-    price: "Rp189.000",
-    image: tawakkalTee,
-    hoverImage: tawakkalTeeAlt,
-    isNew: true,
-  },
-  {
-    id: 3,
-    name: "Ikhlas Tee",
-    category: "Kaos",
-    price: "Rp189.000",
-    image: ikhlasTee,
-    hoverImage: ikhlasTee,
-  },
-  {
-    id: 4,
-    name: "Tawakkal Tee",
-    category: "Kaos",
-    price: "Rp189.000",
-    image: tawakkalTeeAlt,
-    hoverImage: tawakkalTee,
-  },
-];
+import { products } from "@/data/products";
 
 const ProductCarousel = () => {
   return (
@@ -78,18 +28,18 @@ const ProductCarousel = () => {
                     <CardContent className="p-0">
                       <div className="aspect-square mb-3 overflow-hidden bg-muted/10 relative">
                         <img
-                          src={product.image}
+                           src={product.images[0]}
                           alt={product.name}
                           className="w-full h-full object-cover transition-all duration-300 group-hover:opacity-0"
                         />
                         <img
-                          src={product.hoverImage}
+                           src={product.images[0]}
                           alt={`${product.name} alt view`}
                           className="absolute inset-0 w-full h-full object-cover transition-all duration-300 opacity-0 group-hover:opacity-100"
                         />
-                        <div className="absolute inset-0 bg-black/[0.03]"></div>
+                         <div className="absolute inset-0 bg-foreground/5"></div>
                         {product.isNew && (
-                          <div className="absolute top-2 left-2 px-2 py-1 text-xs font-medium text-black">
+                           <div className="absolute top-2 left-2 px-2 py-1 text-xs font-medium text-foreground">
                             NEW
                           </div>
                         )}

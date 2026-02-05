@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import type { ProductDetailData } from "@/data/products";
 import { 
   Breadcrumb, 
   BreadcrumbItem, 
@@ -11,7 +12,11 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Minus, Plus } from "lucide-react";
 
-const ProductInfo = () => {
+interface ProductInfoProps {
+  product: ProductDetailData;
+}
+
+const ProductInfo = ({ product }: ProductInfoProps) => {
   const [quantity, setQuantity] = useState(1);
 
   const incrementQuantity = () => setQuantity(prev => prev + 1);
@@ -31,12 +36,12 @@ const ProductInfo = () => {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link to="/category/earrings">Earrings</Link>
+                 <Link to={`/category/${product.categorySlug}`}>{product.category}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Pantheon</BreadcrumbPage>
+               <BreadcrumbPage>{product.name}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -46,36 +51,29 @@ const ProductInfo = () => {
       <div className="space-y-2">
         <div className="flex justify-between items-start">
           <div>
-            <p className="text-sm font-light text-muted-foreground mb-1">Earrings</p>
-            <h1 className="text-2xl md:text-3xl font-light text-foreground">Pantheon</h1>
+             <p className="text-sm font-light text-muted-foreground mb-1">{product.category}</p>
+             <h1 className="text-2xl md:text-3xl font-light text-foreground">{product.name}</h1>
           </div>
           <div className="text-right">
-            <p className="text-xl font-light text-foreground">€2,850</p>
+             <p className="text-xl font-light text-foreground">{product.price}</p>
           </div>
         </div>
       </div>
 
       {/* Product details */}
       <div className="space-y-4 py-4 border-b border-border">
-        <div className="space-y-2">
-          <h3 className="text-sm font-light text-foreground">Material</h3>
-          <p className="text-sm font-light text-muted-foreground">18k Gold Plated Sterling Silver</p>
-        </div>
-        
-        <div className="space-y-2">
-          <h3 className="text-sm font-light text-foreground">Dimensions</h3>
-          <p className="text-sm font-light text-muted-foreground">2.5cm x 1.2cm</p>
-        </div>
-        
-        <div className="space-y-2">
-          <h3 className="text-sm font-light text-foreground">Weight</h3>
-          <p className="text-sm font-light text-muted-foreground">4.2g per earring</p>
-        </div>
-        
-        <div className="space-y-2">
-          <h3 className="text-sm font-light text-foreground">Editor's notes</h3>
-          <p className="text-sm font-light text-muted-foreground italic">"A modern interpretation of classical architecture, these earrings bridge timeless elegance with contemporary minimalism."</p>
-        </div>
+         {product.details.map((row) => (
+           <div key={row.label} className="space-y-2">
+             <h3 className="text-sm font-light text-foreground">{row.label}</h3>
+             <p className="text-sm font-light text-muted-foreground">{row.value}</p>
+           </div>
+         ))}
+         {product.description?.[0] && (
+           <div className="space-y-2">
+             <h3 className="text-sm font-light text-foreground">Catatan</h3>
+             <p className="text-sm font-light text-muted-foreground italic">“{product.description[0]}”</p>
+           </div>
+         )}
       </div>
 
       {/* Quantity and Add to Cart */}
