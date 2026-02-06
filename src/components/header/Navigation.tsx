@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import ShoppingBag from "./ShoppingBag";
-import pantheonImage from "@/assets/pantheon.jpg";
-import eclipseImage from "@/assets/eclipse.jpg";
-import haloImage from "@/assets/halo.jpg";
+import lookbook1 from "@/assets/lookbook-1.jpeg";
+import lookbook2 from "@/assets/lookbook-2.jpeg";
+import lookbook3 from "@/assets/lookbook-3.jpeg";
 
 interface CartItem {
   id: number;
@@ -30,7 +30,7 @@ const Navigation = () => {
       id: 1,
       name: "Essential Tee",
       price: "Rp249.000",
-      image: pantheonImage,
+      image: lookbook1,
       quantity: 1,
       category: "Kaos"
     },
@@ -38,7 +38,7 @@ const Navigation = () => {
       id: 2,
       name: "Daily Hoodie",
       price: "Rp399.000", 
-      image: eclipseImage,
+      image: lookbook2,
       quantity: 1,
       category: "Hoodie"
     },
@@ -46,7 +46,7 @@ const Navigation = () => {
       id: 3,
       name: "Comfort Longsleeve",
       price: "Rp299.000",
-      image: haloImage, 
+      image: lookbook3, 
       quantity: 1,
       category: "Longsleeve"
     }
