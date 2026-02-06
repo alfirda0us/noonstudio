@@ -1,26 +1,24 @@
 import { Link } from "react-router-dom";
-import { products } from "@/data/products";
+import lookbook2 from "@/assets/lookbook-2.jpeg";
+import lookbook3 from "@/assets/lookbook-3.jpeg";
 
 const FiftyFiftySection = () => {
-  const left = products[0];
-  const right = products[1];
-
   return (
     <section className="w-full mb-16 px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <Link to={`/product/${left.id}`} className="block">
+          <Link to="/category/kaos" className="block">
             <div className="w-full aspect-square mb-3 overflow-hidden">
               <img 
-                src={left.images[0]} 
-                alt={left.name} 
+                src={lookbook2} 
+                alt="Smile & Beautiful Tee lookbook" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           </Link>
           <div className="">
             <h3 className="text-sm font-normal text-foreground mb-1">
-              {left.name}
+              Smile & Beautiful Tee
             </h3>
             <p className="text-sm font-light text-foreground">
               Kaos harian yang rapi, nyaman, dan mudah dipadukan
@@ -29,18 +27,18 @@ const FiftyFiftySection = () => {
         </div>
 
         <div>
-          <Link to={`/product/${right.id}`} className="block">
+          <Link to="/category/kaos" className="block">
             <div className="w-full aspect-square mb-3 overflow-hidden">
               <img 
-                src={right.images[0]} 
-                alt={right.name} 
+                src={lookbook3} 
+                alt="Collection lookbook" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           </Link>
           <div className="">
             <h3 className="text-sm font-normal text-foreground mb-1">
-              {right.name}
+              Outdoor Vibes
             </h3>
             <p className="text-sm font-light text-foreground">
               Statement minimal yang tetap sopan dan clean
