@@ -1,4 +1,4 @@
-import founders from "@/assets/founders.png";
+import lookbook1 from "@/assets/lookbook-1.jpeg";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const EditorialSection = () => {
         
         <div className="order-first md:order-last">
           <div className="w-full aspect-square overflow-hidden">
-            <img src={founders} alt="Noon Studio team" className="w-full h-full object-cover" />
+            <img src={lookbook1} alt="Noon Studio team" className="w-full h-full object-cover" />
           </div>
         </div>
       </div>
