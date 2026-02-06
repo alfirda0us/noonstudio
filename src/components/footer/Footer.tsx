@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-8">
           {/* Brand - Left side */}
           <div>
-            <h2 className="text-xl font-normal tracking-wide mb-4">NOON STUDIO™</h2>
+            <h2 className="text-xl font-medium tracking-wide mb-4">NOON STUDIO™</h2>
             <p className="text-sm font-light text-black/70 leading-relaxed max-w-md mb-6">
               Modest wear untuk generasi muda muslim. Nyaman, modern, dan bernuansa Islami.
             </p>
