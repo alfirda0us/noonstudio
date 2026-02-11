@@ -4,7 +4,7 @@ import Footer from "../components/footer/Footer";
 
 const TermsOfService = () => {
   useEffect(() => {
-    document.title = "Terms of Service - Linea Jewelry";
+    document.title = "Syarat & Ketentuan - NOON STUDIO™";
   }, []);
 
   return (
@@ -14,131 +14,132 @@ const TermsOfService = () => {
       <main className="pt-6">
         <div className="max-w-4xl mx-auto px-6 py-12">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl font-light text-foreground mb-4">Terms of Service</h1>
-            <p className="text-muted-foreground">Last updated: January 15, 2024</p>
+            <h1 className="text-4xl font-light text-foreground mb-4">Syarat & Ketentuan</h1>
+            <p className="text-muted-foreground">Terakhir diperbarui: 1 Februari 2024</p>
           </header>
 
           <div className="prose prose-lg max-w-none space-y-8">
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Agreement to Terms</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Persetujuan Syarat</h2>
               <p className="text-muted-foreground leading-relaxed">
-                By accessing and using the Linea Jewelry Inc. website and services, you accept and agree to be bound by the terms and provision of this agreement. These Terms of Service govern your use of our website, products, and services.
+                Dengan mengakses dan menggunakan website dan layanan NOON STUDIO™, Anda menerima dan setuju untuk terikat oleh syarat dan ketentuan dalam perjanjian ini. Syarat & Ketentuan ini mengatur penggunaan Anda atas website, produk, dan layanan kami.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Use License</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Lisensi Penggunaan</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Permission is granted to temporarily download one copy of the materials on Linea Jewelry Inc.'s website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                Izin diberikan untuk mengunduh sementara satu salinan materi di website NOON STUDIO™ hanya untuk penggunaan pribadi, non-komersial. Ini adalah pemberian lisensi, bukan transfer kepemilikan, dan di bawah lisensi ini Anda tidak boleh:
               </p>
               <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                <li>Modify or copy the materials</li>
-                <li>Use the materials for any commercial purpose or for any public display</li>
-                <li>Attempt to reverse engineer any software contained on the website</li>
-                <li>Remove any copyright or other proprietary notations from the materials</li>
+                <li>Memodifikasi atau menyalin materi</li>
+                <li>Menggunakan materi untuk tujuan komersial atau tampilan publik apa pun</li>
+                <li>Mencoba merekayasa balik perangkat lunak apa pun yang ada di website</li>
+                <li>Menghapus hak cipta atau notasi kepemilikan lainnya dari materi</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Product Information and Availability</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Informasi Produk dan Ketersediaan</h2>
               <p className="text-muted-foreground leading-relaxed">
-                We strive to provide accurate product information, including descriptions, pricing, and availability. However, we do not warrant that product descriptions or other content is accurate, complete, reliable, or error-free. We reserve the right to modify or discontinue products without prior notice.
+                Kami berusaha menyediakan informasi produk yang akurat, termasuk deskripsi, harga, dan ketersediaan. Namun, kami tidak menjamin bahwa deskripsi produk atau konten lainnya akurat, lengkap, dapat diandalkan, atau bebas dari kesalahan. Kami berhak untuk memodifikasi atau menghentikan produk tanpa pemberitahuan sebelumnya.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Orders and Payment</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Pesanan dan Pembayaran</h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-xl font-light text-foreground mb-2">Order Acceptance</h3>
+                  <h3 className="text-xl font-light text-foreground mb-2">Penerimaan Pesanan</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order for any reason, including but not limited to product availability, errors in product information, or suspected fraud.
+                    Semua pesanan tunduk pada penerimaan dan ketersediaan. Kami berhak untuk menolak atau membatalkan pesanan apa pun dengan alasan apa pun, termasuk namun tidak terbatas pada ketersediaan produk, kesalahan dalam informasi produk, atau dugaan penipuan.
                   </p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-light text-foreground mb-2">Payment Terms</h3>
+                  <h3 className="text-xl font-light text-foreground mb-2">Ketentuan Pembayaran</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Payment is due at the time of purchase. We accept major credit cards and other payment methods as displayed during checkout. All prices are in USD unless otherwise specified.
+                    Pembayaran jatuh tempo pada saat pembelian. Kami menerima transfer bank, e-wallet, dan metode pembayaran lain yang ditampilkan saat checkout. Semua harga dalam Rupiah Indonesia (IDR) kecuali disebutkan sebaliknya.
                   </p>
                 </div>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Shipping and Delivery</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Pengiriman dan Pengantaran</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                We will make every effort to ship orders within the timeframes specified. However, delivery dates are estimates and we are not responsible for delays caused by shipping carriers or circumstances beyond our control.
+                Kami akan berusaha sebaik mungkin untuk mengirim pesanan dalam jangka waktu yang ditentukan. Namun, tanggal pengiriman adalah perkiraan dan kami tidak bertanggung jawab atas keterlambatan yang disebabkan oleh kurir pengiriman atau keadaan di luar kendali kami.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Risk of loss and title for products pass to you upon delivery to the carrier. We are not responsible for lost, stolen, or damaged packages once they have been delivered to the address provided.
+                Risiko kehilangan dan kepemilikan produk beralih kepada Anda setelah pengiriman ke kurir. Kami tidak bertanggung jawab atas paket yang hilang, dicuri, atau rusak setelah dikirimkan ke alamat yang diberikan.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Returns and Exchanges</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Pengembalian dan Penukaran</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                We want you to be completely satisfied with your purchase. Returns and exchanges are accepted within 30 days of delivery, subject to the following conditions:
+                Kami ingin Anda benar-benar puas dengan pembelian Anda. Pengembalian dan penukaran diterima dalam 7 hari setelah pengiriman, dengan ketentuan berikut:
               </p>
               <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                <li>Items must be in original condition and packaging</li>
-                <li>Custom or personalized items are final sale</li>
-                <li>Return shipping costs are the responsibility of the customer</li>
-                <li>Refunds will be processed to the original payment method</li>
+                <li>Barang harus dalam kondisi dan kemasan asli</li>
+                <li>Tag dan label masih terpasang</li>
+                <li>Barang tidak boleh sudah dicuci atau dipakai</li>
+                <li>Biaya pengiriman pengembalian ditanggung oleh pelanggan</li>
+                <li>Pengembalian dana akan diproses ke metode pembayaran asli</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Warranty and Care</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Garansi dan Perawatan</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Our jewelry comes with a limited warranty against manufacturing defects. This warranty does not cover damage from normal wear, improper care, or accidents. Proper care instructions are provided with each purchase and on our website.
+                Produk kami dilengkapi dengan garansi terbatas terhadap cacat produksi. Garansi ini tidak mencakup kerusakan akibat pemakaian normal, perawatan yang tidak tepat, atau kecelakaan. Petunjuk perawatan yang tepat disediakan dengan setiap pembelian dan di website kami.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Intellectual Property</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Kekayaan Intelektual</h2>
               <p className="text-muted-foreground leading-relaxed">
-                All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Linea Jewelry Inc. and is protected by copyright, trademark, and other intellectual property laws. Unauthorized use is prohibited.
+                Semua konten di website ini, termasuk namun tidak terbatas pada teks, grafik, logo, gambar, dan perangkat lunak, adalah milik NOON STUDIO™ dan dilindungi oleh hak cipta, merek dagang, dan undang-undang kekayaan intelektual lainnya. Penggunaan tanpa izin dilarang.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Limitation of Liability</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Batasan Tanggung Jawab</h2>
               <p className="text-muted-foreground leading-relaxed">
-                In no event shall Linea Jewelry Inc. or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on our website or products, even if we have been notified of the possibility of such damage.
+                Dalam keadaan apa pun NOON STUDIO™ atau pemasoknya tidak bertanggung jawab atas kerusakan apa pun (termasuk, tanpa batasan, kerusakan karena kehilangan data atau keuntungan, atau karena gangguan bisnis) yang timbul dari penggunaan atau ketidakmampuan untuk menggunakan materi di website atau produk kami, bahkan jika kami telah diberitahu tentang kemungkinan kerusakan tersebut.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Privacy Policy</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Kebijakan Privasi</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Your privacy is important to us. Please review our Privacy Policy, which also governs your use of our website and services, to understand our practices regarding your personal information.
+                Privasi Anda penting bagi kami. Silakan tinjau Kebijakan Privasi kami, yang juga mengatur penggunaan Anda atas website dan layanan kami, untuk memahami praktik kami terkait informasi pribadi Anda.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Governing Law</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Hukum yang Berlaku</h2>
               <p className="text-muted-foreground leading-relaxed">
-                These terms and conditions are governed by and construed in accordance with the laws of New York State, and you irrevocably submit to the exclusive jurisdiction of the courts in that state or location.
+                Syarat dan ketentuan ini diatur oleh dan ditafsirkan sesuai dengan hukum Republik Indonesia, dan Anda secara tidak dapat ditarik kembali tunduk pada yurisdiksi eksklusif pengadilan di Indonesia.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Changes to Terms</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Perubahan Syarat</h2>
               <p className="text-muted-foreground leading-relaxed">
-                We reserve the right to revise these Terms of Service at any time without notice. By using this website, you are agreeing to be bound by the current version of these Terms of Service.
+                Kami berhak untuk merevisi Syarat & Ketentuan ini kapan saja tanpa pemberitahuan. Dengan menggunakan website ini, Anda setuju untuk terikat oleh versi terkini dari Syarat & Ketentuan ini.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-light text-foreground mb-4">Contact Information</h2>
+              <h2 className="text-2xl font-light text-foreground mb-4">Informasi Kontak</h2>
               <p className="text-muted-foreground leading-relaxed">
-                If you have any questions about these Terms of Service, please contact us at:
+                Jika Anda memiliki pertanyaan tentang Syarat & Ketentuan ini, silakan hubungi kami di:
               </p>
               <div className="mt-4 text-muted-foreground">
-                <p>Email: legal@lineajewelry.com</p>
-                <p>Phone: +1 (212) 555-0123</p>
-                <p>Address: 123 Madison Avenue, New York, NY 10016</p>
+                <p>WhatsApp: +62 814-1227-6204</p>
+                <p>Instagram: @noonstudio.ac</p>
+                <p>Alamat: Taman Nirwana, Rawalumbu, Bekasi Timur 17115</p>
               </div>
             </section>
           </div>
